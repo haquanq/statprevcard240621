@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap");
+// (main background)
+$Very_dark_blue: hsl(233, 47%, 7%);
+//  (card background)
+$Dark_desaturated_blue: hsl(244, 38%, 16%);
+//  (accent)
+$Soft_violet: hsl(277, 64%, 61%);
+// (main heading, stats)
+$White: hsl(0, 0%, 100%);
+//  (main paragraph)
+$Slightly_transparent_white1: hsla(0, 0%, 100%, 0.75);
+//  (stat headings)
+$Slightly_transparent_white2: hsla(0, 0%, 100%, 0.6);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $Very_dark_blue;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 1110px;
+  height: 450px;
+  background: $Dark_desaturated_blue;
+  &__content {
+    height: 100%;
+    padding: 70px 0px 65px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    article {
+      h2 {
+        width: 17ch;
+        color: $White;
+        font-family: "inter", sans-serif;
+        font-size: 2.266em;
+        span {
+          font: inherit;
+          color: $Soft_violet;
+        }
+      }
+      > p {
+        font-size: 0.9375em;
+        letter-spacing: 0.5px;
+        width: 43ch;
+        line-height: 1.8;
+        font-family: "Lexend", sans-serif;
+        margin: 30px 0 30px 0;
+        color: $Slightly_transparent_white1;
+      }
+    }
+    > div {
+      display: flex;
+      p {
+        letter-spacing: 1px;
+        font-family: "inter", sans-serif;
+        font-weight: 700;
+        font-size: 1.375em;
+        text-transform: uppercase;
+        color: $White;
+        margin-bottom: 8px;
+      }
+      h3 {
+        letter-spacing: 2px;
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 0.6875em;
+        color: $Slightly_transparent_white2;
+        text-transform: uppercase;
+      }
+      > div:not(:first-child) {
+        margin-left: 65px;
+      }
+    }
+  }
+  &__image {
+    position: relative;
+    height: 100%;
+    img {
+      display: block;
+      width: 540px;
+      height: 100%;
+      object-fit: cover;
+    }
+    img.mobile {
+      display: none;
+    }
+    span {
+      filter: opacity(0.45) contrast(1.5);
+      background: darken($Soft_violet, 20);
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  body {
+    align-items: initial;
+  }
+  .card {
+    margin: 85px 0;
+    width: max-content;
+    height: auto;
+    flex-direction: column-reverse;
+    align-items: initial;
+    justify-content: initial;
+    &__image {
+      img {
+        object-position: top;
+        width: 100%;
+        height: 350px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .card {
+    width: 90%;
+    min-width: 328px;
+    flex-direction: column-reverse;
+    align-items: initial;
+    justify-content: initial;
+    &__content {
+      padding-left: 0;
+      align-items: center;
+      article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+          text-align: center;
+        }
+        p {
+          text-align: center;
+        }
+      }
+      > div {
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .card {
+    width: 90%;
+    min-width: 328px;
+    flex-direction: column-reverse;
+    align-items: initial;
+    justify-content: initial;
+    &__content {
+      height: auto;
+      padding-left: 0;
+      align-items: center;
+      padding: 40px 0px 35px 0;
+      article {
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+          width: 14ch;
+          font-size: 1.75em;
+          text-align: center;
+        }
+        p {
+          margin: 20px 0 5px 0;
+          width: 32ch;
+          text-align: center;
+        }
+      }
+      > div {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        div {
+          margin: 30px 0 0 0 !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+    &__image {
+      img {
+        display: none;
+        width: 100%;
+        height: 240px;
+      }
+    }
+    img.mobile {
+      display: block !important;
+    }
+  }
+}
